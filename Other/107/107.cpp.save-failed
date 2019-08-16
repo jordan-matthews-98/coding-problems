@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+    int numWorkers;
+    float mainHeight;
+    while(scanf("%f %d", &mainHeight, &numWorkers), mainHeight){
+        if(mainHeight == 1){
+            printf("0 1\n");
+        }else if(mainHeight == numWorkers + 1){
+            printf("1 %d\n", mainHeight + numWorkers);
+        }else{
+            double temp, intpart, fractpart, lower = 1e-7, upper = 1 - 1e-7, comp = 1 + 1e-7;
+            int multi, power = 1;
+            do{
+                multi = 1;
+            //     = temp(pow(mainHeight, 1.0/power);
+                fractpart = modf(pow(mainHeight, 1.0/++multi), &intpart);
+                while(fractpart > lower && fractpart < upper){
+                    power *= multi;
+                    fractpart = modf(pow(mainHeight, 1.0/++multi), &intpart);
+                    printf("%f\n", fractpart);
+                }
+            }while(pow(mainHeight, 1.0/++));
+            power /= counter;
+            printf("%f %d\n", pow(mainHeight, 1.0/power), power);
+        }
+    }
+}

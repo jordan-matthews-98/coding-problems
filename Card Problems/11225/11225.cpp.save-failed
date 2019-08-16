@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    int T;
+    char oudlers[3][50] = {"fool", "twenty-one of trumps", "one of trumps"};
+    scanf("%d", &T);
+    for(int i = 1; i <= T; i++){
+        int M;
+        char card[50];
+        scanf("%d", &M);
+        while(M--){
+            scanf("\n%[^\n]", card);
+            if(!(strcmp(card, oudlers[0]) && strcmp(card, oudlers[1]) && strcmp(card, oudlers[2]))){
+
+            }
+        }
+        printf("Hand #%d\n", i);
+    }
+}

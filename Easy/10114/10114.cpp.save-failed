@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(){
+    int months, records, month, depreciationMonth;
+    double downPayment, loan, owed, worth, depreciation;
+
+    while(scanf("%d %lf %lf %d", &months, &downPayment, &loan, &records), months >= 0){
+        scanf("%d %lf", &depreciationMonth, &depreciation);
+        month = 0;
+        --records;
+        owed = loan;
+        worth = (downPayment + loan)*(1 - depreciation);
+        //printf("%lf %lf\n", owed, worth);
+        while(worth <= owed){
+            if(month < depreciationMonth){
+                worth *= (1 - depreciation);
+            }else{
+                if(records){
+                    depreciationMonth = months;
+                }else{
+                    scanf("%d %lf", &depreciationMonth, &depreciation);
+                    worth *= (1 - depreciation);
+                    --records;
+                }
+            }
+            owed -= downPayment;
+            ++month;
+            while(records--){
+        printf("%d\n", records);
+                scanf("%*d %*lf");
+            }
+        }
+        if(month == 1){
+            printf("1 month\n");
+        }else{
+            printf("%d months\n", month);
+        }
+    }
+}

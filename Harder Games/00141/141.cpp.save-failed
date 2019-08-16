@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string>
+#include <map>
+
+using namespace std;
+
+string boardToString(bool *board){
+    string stringedBoard = "";
+    for(int i = 0; i < 250; i += 8){
+        stringedBoard += board[i];
+    }
+}
+
+int main(){
+    int N;
+    while(scanf("%d", &N), N){
+        map <string, bool> happened;
+        bool board[51][50];
+        N *= 2;
+        while(N--){
+            int r, c;
+            scanf("%d %d %*c", &r, &c);
+
+        }
+    }
+}
